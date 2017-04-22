@@ -1,0 +1,32 @@
+{
+  "name": "twitter-client",
+  "version": "1.0.0",
+  "description": "twitter client apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atmaboy/twitter-client.git"
+  },
+  "keywords": [
+    "twitter",
+    "client"
+  ],
+  "author": "Atmaji Haryo Wiryawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atmaboy/twitter-client/issues"
+  },
+  "homepage": "https://github.com/atmaboy/twitter-client#readme",
+  "dependencies": {
+    "async": "^2.3.0",
+    "body-parser": "^1.17.1",
+    "chai": "^3.5.0",
+    "express": "^4.15.2",
+    "mocha": "^3.2.0",
+    "request": "^2.81.0",
+    "twitter": "^1.7.0"
+  }
+}
