@@ -41,7 +41,7 @@ node server.js
 
 ## How To Use
 
-* Install a HTTP CLIENT software such as postman to make a request to server
+* Install a HTTP CLIENT software such as postman to test and make a request to server
 
 ### URI Endpoint
 
