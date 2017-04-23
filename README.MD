@@ -43,15 +43,15 @@ node server.js
 
 * Install a HTTP CLIENT software such as postman to make a request to server
 
-# URI Endpoint
+### URI Endpoint
 
 To use and make a request, just following this step
 
-[Timeline](http://{{url}}:14045/timeline)
+Timeline : http://{{url}}:14045/timeline
 * Method : Get
 * Response : Json
 
-[Post Tweet](http://{{url}}:14045/update)
+Post Tweet : http://{{url}}:14045/update
 * Method        : POST
 * Body Type     : Application/JSON
 * Body Content  : { "status" : "Tweet something" }
