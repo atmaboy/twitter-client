@@ -31,28 +31,29 @@ app.use(bodyParser.json());
 app.get("/timeline", function(req, res){
   client.get('statuses/user_timeline',params,function(err,tweets,response){      
     
-    if(err)
+    if(err){
       res.send(JSON.stringify(err));
-    
-    if(response.statusCode == 200){      
-      var arr = [];
-      tweets.forEach(function(data){
-				arr.push(function(cb){
-					
-					let params = {
-            created_at : data.created_at,
-            text       : data.text
-					};
-          cb(null,params);
-				});
-			});
-			
-
-			async.parallel(arr,function(err,result){			
-				res.send(JSON.stringify(result));
-			});
     }else{
-      res.send(JSON.stringify({code : response.statusCode, body : response.body}));
+      if(response.statusCode == 200){      
+        var arr = [];
+        tweets.forEach(function(data){
+          arr.push(function(cb){
+            
+            let params = {
+              created_at : data.created_at,
+              text       : data.text
+            };
+            cb(null,params);
+          });
+        });
+        
+
+        async.parallel(arr,function(err,result){			
+          res.send(JSON.stringify(result));
+        });
+      }else{
+        res.send(JSON.stringify({code : response.statusCode, body : response.body}));
+      }
     }
   })
 });
@@ -60,16 +61,19 @@ app.get("/timeline", function(req, res){
 app.post("/update", function(req, res){
   
   client.post('statuses/update',req.body,function(err,tweets,response){      
-    if(err)
+    if(err){
       res.send(JSON.stringify(err));
-    
-    if(response.statusCode == 200){
-      res.send(JSON.stringify(tweets));
     }else{
-      res.send(JSON.stringify({code : response.statusCode, body : tweets}));
+      if(response.statusCode == 200){
+        res.send(JSON.stringify(tweets));
+      }else{
+        res.send(JSON.stringify({code : response.statusCode, body : tweets}));
+      }
     }
   })
 });
 
-app.listen(3000);
-console.log("apps running")
+app.listen(14045);
+console.log("apps running on port 14045");
+console.log("===========================");
+console.log("url : http://localhost:14045");
